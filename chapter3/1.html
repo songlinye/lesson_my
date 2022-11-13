@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var empty_object = {};
+        var stooge = {
+            "first-name": "Jerome",
+            "last-name": "Howard"
+        };
+        var flight = {
+            airline:"Oceanic",
+            number:815,
+            departure: {
+                IATA: "SYD",
+                time: "2004-09-22 14:55",
+                city: "Sydney"
+            }
+        }
+        var middle = stooge["middle-name"] || "(none)";
+        var status = "asd" || "unknown";
+        
+        stooge.abc = "abcdefgh"
+        delete stooge.abc;
+
+
+        /*
+         很方便的语法实现反射，即 for(... in ...) 语句，语法如下
+            for(var p in obj){
+                // 语句
+            }
+            这里的 var p 表示声明一个变量，用以存储对象obj的属性（方法）名称，有了对象名和属性（方法）名，
+            就可以用花括号里面的语法来调用一个对象的属性（方法）
+         */
+
+    </script>
+</body>
+</html>
