@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.wp {
+    width: 300px;
+    height:300px;
+    /* css调试技巧 */
+    /* 优先选择背景颜色    因为设置 border 会影响文档流  */
+    background: green; 
+    /* 盒子模型 */
+    /* border: 1px solid green; */
+}
+.box {  /* 权重为10 */
+    background: pink;
+}
+.box.size{   /* 权重为20 */ 
+    width: 100px;
+    height: 100px;
+}
