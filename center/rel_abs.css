@@ -1,0 +1,13 @@
+.wp {
+    position: relative;
+}
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);         /* 推荐使用 translate，因为它的百分比是相对于自身的 */
+    /* margin-left: -50%;       margin取值的%是相对于父元素的，故此处不能用,此处是错误的
+    margin-top: -50%; */
+    /* margin-left: -50px;      这里需要根据自身的尺寸来
+    margin-top: -50px; */
+}
