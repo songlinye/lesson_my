@@ -31,6 +31,7 @@
         10个<div></div>标签         div*10 + Tab
         10个<div class="abc"></div>        .abc*10 + Tab
         10个<div class="abc"></div>，且里面内容从1到10      .abc*10{$} +Tab
+        <a href="" class=""abc></a>         a.abc + Tab           (css 选择器的方式)
 
 
 - 要使元素占满整个页面就设置 width: 100vw;  height: 100vh;
