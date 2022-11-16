@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li + li {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+          <li>第一行</li>  <!--用一个结合符只能选择两个相邻兄弟中的第二个元素   故这里有没有变红-->
+          <li>第二行</li>
+          <li>第三行</li>
+        </ul>
+        <ol>
+          <li>第四行</li>  <!-- 1. 理由同上  2. 他和第三行的父元素不一样，故兄弟选择器不生效-->
+          <li>第五行</li>
+          <li>第六行</li>
+        </ol>
+      </div>
+</body>
+</html>
