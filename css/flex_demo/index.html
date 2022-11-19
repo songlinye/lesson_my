@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css reset 样式重置 */
+        /* * {
+            margin: 0;
+            padding: 0;
+        } */
+        /* css reset 样式重置尽量不要用 *  会消耗性能*/
+        body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+            margin: 0;
+            padding: 0;
+        } 
+        .row {
+            margin: 10px 0;
+            height: 20vh;
+            background: green;
+            font-size: 0px;     /* 这里让换行符不占空间 */
+        }
+        .col {
+            font-size: 16px;    /* 这里再把子元素中的字体大小变回来 */
+            /* 不会把兄弟元素挤下去
+                inline-block 可以设置宽高
+                bug 有间隙            （每个div之间有换行符，设置inline-block时会让换行符占一些位置）
+                列式布局
+             */
+            display: inline-block;
+            /* width: 10%; */
+            height: 100%;
+            background: pink;           
+            text-align: center;             /* 这里不再设置弹性布局，因为会和 display:inline-block冲突 */
+                                            /* css 为层叠样式表，后面会覆盖前面 */
+            line-height: 20vh;         /* 设置行高为100%，实现文字垂直居中 */
+        }
+
+
+        .colcopy {
+            font-size: 16px;    /* 这里再把子元素中的字大小变回来 */
+            /* 不会把兄弟元素挤下去
+                inline-block 可以设置宽高
+                bug 有间隙            （每个div之间有换行符，设置inline-block时会让换行符占一些位置）
+                列式布局
+             */
+            display: inline-block;
+            width: 10%;
+            height: 100%;
+            background: pink;           
+            text-align: center;             /* 这里不再设置弹性布局，因为会和 display:inline-block冲突 */
+                                            /* css 为层叠样式表，后面会覆盖前面 */
+            line-height: 20vh;         /* 设置行高为100%，实现文字垂直居中 */
+        }
+        .colcopy:nth-child(2n) {
+            background: yellow;
+        }
+
+
+        .col:nth-child(2n) {
+            background: yellow;
+        }
+        .col-7 {
+            width: 70%;
+        }
+        .col-3 {
+            width: 30%;
+        }
+        .container {
+            width: 1024px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row"> 
+            <div class="col col-7">1</div>
+            <div class="col col-3">2</div>
+            <!-- <div class="col">3</div>
+            <div class="col">4</div>
+            <div class="col">5</div>
+            <div class="col">6</div>
+            <div class="col">7</div>
+            <div class="col">8</div>
+            <div class="col">9</div>
+            <div class="col">10</div> -->
+        </div>
+        
+        <div class="row"> 
+            <div class="colcopy">1</div>
+            <div class="colcopy">2</div>
+            <div class="colcopy">3</div>
+            <div class="colcopy">4</div>
+            <div class="colcopy">5</div>
+            <div class="colcopy">6</div>
+            <div class="colcopy">7</div>
+            <div class="colcopy">8</div>
+            <div class="colcopy">9</div>
+            <div class="colcopy">10</div>
+        </div>
+    </div> 
+</body>
+</html>
