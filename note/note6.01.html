@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: black;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <button onclick="test1()">变色</button>
+    <button onclick="test2()">褪色</button>
+
+    <script>
+        function test1() {
+            const a = 
+            document.getElementsByClassName('box')[0].style.backgroundColor = "red";   //  此处为字符串，要加引号
+            // document.getElementById('box').innerHTML = "asdasdasd";
+            document.getElementsByClassName('box')[0].style.transition = "background-color  3s";
+        }
+        function test2() {
+            document.getElementsByClassName('box')[0].style.backgroundColor = "black";     //  此处的属性名要用驼峰式的
+            document.getElementsByClassName('box')[0].style.transition = "background-color  3s";    //    此处的属性名称应该用驼峰式的
+        }
+    </script>
+</body>
+</html>

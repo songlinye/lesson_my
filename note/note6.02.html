@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">第一个div</div>
+		<div class="box">第二个div</div>
+        <button onclick="changeColor()">变化</button>
+	</body>
+	<script type="text/javascript">
+        function changeColor() {
+            const a = document.querySelector(".box");
+            a.innerHTML = "变成第三个DIV";
+        }
+	</script>
+</html>
