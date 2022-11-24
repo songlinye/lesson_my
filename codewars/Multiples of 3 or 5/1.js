@@ -1,3 +1,6 @@
+// 3 或 5 的倍数
+
+
 // function solution(number){
 //   var sum = 0;
 //   flag:
