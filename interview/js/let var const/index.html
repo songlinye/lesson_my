@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 函数提升的是值
+    console.log(func);
+    console.log(c,'--------')   // 不会打印，但是 c 是 undefined
+    // 定义变量
+    // 作用域  全局作用域 范围
+    var a = 1;      // 挂载在 全局对象上  window        污染了 window 对象
+    let b = 2;      // 支持块级作用域      不会挂载在window上
+    // 代码从上到下执行
+    // console.log(d);   // 报错了
+    // js 变量会提升 提升的是变量的定义/声明， 提升到它所在的作用域的最顶端      
+    // console.log(c);  var c = 3;  相当于   var c;  console.log(c);  c = 3;
+    function func() {
+        console.log(d,'=====');
+        let d = 2;      //  var 会变量的声明提升  并不是好事， 代码的可读性被影响了         let 不会提升    
+        // var d = 2;
+    }
+    
+    var c = 3;
+    </script>
+</body>
+</html>
