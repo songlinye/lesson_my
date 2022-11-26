@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id = "ios">123132</span>
+    <script>
+        function a() {
+            var y = document.getElementById("ios");
+            // console.log(y.value.substring(1));        错误   span 标签没有 value值
+            console.log(y.innerText.substring(1));
+        }
+        a();
+    </script>
+</body>
+</html>
