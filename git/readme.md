@@ -1,6 +1,8 @@
 - git init
 
-- git add readme.md  多次添加到暂存区                    (尽量不要用 . )
+- git add readme.md  多次添加到暂存区(添加跟踪)                    (尽量不要用 . )
+
+- git rm --cached readme.md   取消跟踪
 
 - git commit -m 'reason'   一次性提交
 
