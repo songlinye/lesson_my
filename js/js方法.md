@@ -31,6 +31,8 @@
 
 - substr()          从字符串中提取从 startPos位置开始的指定长度的字符串。
 
+- parseInt()        可解析一个字符串，并返回一个整数     (note11)
+
 
 # Math 对象方法
 
@@ -91,6 +93,22 @@
 - forEach()     遍历数组的每一个元素，并且将这个元素作为一个参数传递给里面的回调函数                没有返回值，且不改变原数组
 
 - map()     返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值        不改变原数组
+
+- reduce()    接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
+
+                    let arr = [1,3,5,7,9]
+
+                    let sum1 = arr.reduce((total,current,index)=>{
+                        console.log(total,current,index);
+                        return total+current;
+                    })
+                    console.log(sum1); 
+
+                    let sum2 = arr.reduce((total,current,index)=>{
+                        console.log(total,current,index);
+                        return total*current
+                    })
+                    console.log(sum2);
 
 
 
