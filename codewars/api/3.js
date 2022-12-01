@@ -12,5 +12,5 @@ let str = "How are you doing today"
 // }
 // console.log(b);
 
-//第二种
+//第二种 
 console.log(Math.min(...str.split(" ").map(item => item.length)))
