@@ -1,0 +1,11 @@
+console.log(parseInt("10"));
+console.log(parseInt("10.33"));
+console.log(parseInt("34 45 66") );
+console.log(parseInt(" 60 "));
+console.log(parseInt("40 years"));
+console.log(parseInt("He was 40"));
+console.log(parseInt("10",10));
+console.log(parseInt("025000"));
+console.log(parseInt("10",8));
+console.log(parseInt("0x10"));
+console.log(parseInt("10",16));
