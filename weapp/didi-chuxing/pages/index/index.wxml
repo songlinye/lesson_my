@@ -1,0 +1,35 @@
+<scroll-view class="container" scroll-y="true" >
+<view class="didi_hd">
+  <view class="didi_map">
+    <map class="map"
+    longitude="{{longitude}}" 
+    latitude="{{latitude}}"
+    show-location>
+    </map>
+  </view>
+</view>
+<view class="didi_bd">
+<image src="/image/gg.png" class="didi_bd__gg"></image>
+</view>
+<view class="didi_ft">
+  <swiper class="menu {{(menu_type == 1)&&'menu-highter'}}" indicator-dots="true" indicator-active-color="blue" 
+   bindchange="change">  <!--函数不能加括号-->
+      <swiper-item>
+        <block wx:for="{{func1}}" wx:key="id">
+          <view class="menu_box">
+            <image src="{{item.url}}" class="menu_box__image"></image>
+            <view class="menu_box__text">{{item.name}}</view>
+          </view>
+        </block>
+      </swiper-item>
+      <swiper-item>
+        <block wx:for="{{func2}}" wx:key="id">
+          <view class="menu_box">
+            <image src="{{item.url}}" class="menu_box__image"></image>
+            <view class="menu_box__text">{{item.name}}</view>
+          </view>
+        </block>
+      </swiper-item>
+  </swiper>
+</view>
+</scroll-view>

@@ -1,0 +1,63 @@
+.map {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-top-left-radius: 50rpx;
+  border-top-right-radius: 50rpx;
+  z-index: 1;
+}
+.didi_hd {
+  height: 465rpx;
+
+}
+
+.didi_bd {
+  background-color: red;
+  height: 391rpx;
+}
+
+.didi_ft {
+  height: 100%;
+  background-color: blue;
+  /*display: flex*/
+}
+.didi_map {
+  height: 100%;
+}
+
+.didi_bd__gg {
+  width: 706rpx;
+  height:154rpx;
+}
+
+.menu {
+  background-color: white;
+  height: 420rpx;
+}
+
+.menu-highter {
+  background-color: white;
+  height: 671rpx;
+}
+
+.menu_box {
+  width:141rpx;
+  height:150rpx;
+  background-color: white;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.menu_box__image {
+  width:120rpx;
+  height:100rpx;
+}
+
+.menu_box__text {
+  font-size: 10pt;
+}
+
+
+
