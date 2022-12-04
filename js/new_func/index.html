@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 为什么 var 声明会挂载在 window 上    而 let 却不会呢？
+        // 代码本质     文本字符串      编辑器
+        // 将这段文本交给 js 编译器 chrome  V8引擎
+        // 分词 var     name      =       字符串数据类型
+        // 编译阶段       语法校验      console.log(name);   如果 name 是 let 声明的，进入暂时性死区   //var 声明    undefined  变量提升
+        // 运行阶段
+        // 内存中声明
+        // console.log(name);
+        // 不同的变量   作用域不一样
+        // VO { global: , name }
+        // 变量查找 按作用域来查找
+        // VO 不动  ，  AO 执行 (active object)
+        // var name = "windowsName";   // window           global scope
+        // var y = 5;
+        // function a() {
+        //     // 作用域链
+        //     // 执行时   AO { function: , name, x, chain: Global VO}
+        //     var x = 2;
+        //     var name = "Cherry"          //     function scope
+        //     console.log(name);
+        //     console.log(x, y);
+        // }
+        // a();    // 一段代码 内存中？    进入执行栈
+        // 'use strict'
+        var name = "windowsName";
+        var a = {
+            name: "Cherry",
+            fn: function() {
+                console.log(this.name);
+            }
+        }
+
+        var b = 1;
+        var c = b;  // 赋值   值传递
+        // var f = a.fn;    // 赋值  函数对象  f 指向   引用式赋值
+        // f();     // 相当于  window.f()
+
+
+
+        // a.fn();
+        // window.a.fn();
+        // function a() {
+        //     // this 不会指向  调用它的对象
+        //     var name = "Cherry";
+        //     // 无法确定     this 的值由调用的方式决定
+        //     console.log(this.name);
+        // }
+        // a();// 等同于 window.a()    // 函数一定会提升   window
+    </script>
+</body>
+</html>
