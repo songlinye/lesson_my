@@ -51,7 +51,9 @@
                 console.log( arr );       //["hello", "javascript"]
                 console.log( length );        //[5, 10]
 
-- - Math.pow()      两个参数，第一个为底数，第二个为几次方
+- Math.pow()      两个参数，第一个为底数，第二个为几次方
+
+- Math.abs()    取绝对值 
     
 
 
