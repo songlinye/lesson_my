@@ -9,6 +9,7 @@ class PaginationHelper {
 
 	itemCount() {
         return this.arr.length;
+		// 返回总项目数
 	}
 	pageCount() {
         return this.sum;
