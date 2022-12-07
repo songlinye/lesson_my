@@ -17,8 +17,7 @@
 }
 
 .didi_ft {
-  height: 100%;
-  background-color: blue;
+  /*background-color: blue;*/
   /*display: flex*/
 }
 .didi_map {
@@ -57,6 +56,60 @@
 
 .menu_box__text {
   font-size: 10pt;
+}
+
+.welfare {
+  height: 645rpx;
+  border-radius: 21rpx;
+  background-color: rgba(255, 136, 0, 0.61);
+}
+
+.welfare_text {
+  height: 88rpx;
+  border-top-left-radius: 21rpx;
+  border-top-right-radius: 21rpx;
+  font-size: 13pt;
+  color: white;
+  line-height: 88rpx;
+}
+
+.welfare_text > text {
+  margin-left: 29rpx;
+}
+
+.welfare_menu:nth-child(2) {
+  height: 261rpx;
+  margin: 0 17rpx 0rpx 17rpx;
+  border-radius: 11rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.welfare_menu:nth-child(3) {
+  height: 261rpx;
+  margin: 11rpx 17rpx 28rpx 17rpx;
+  border-radius: 11rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.welfare_menu__box {
+  height: 261rpx;
+  width: 215rpx;
+  background: linear-gradient(#fdfffd, #fdfcf3);
+  border-radius: 11rpx;
+}
+
+.welfare_menu__box .title {
+  font-size: 9pt;
+  margin-left: 18rpx;
+  margin-top: 28rpx;
+}
+
+.welfare_menu__box .sub_title {
+  color: #86864e;
+  font-size: 6pt;
+  margin-left: 18rpx;
 }
 
 

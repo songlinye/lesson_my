@@ -30,6 +30,26 @@
           </view>
         </block>
       </swiper-item>
-  </swiper>m
+  </swiper>
+  <view class="welfare">
+    <view class="welfare_text">
+      <text>福利专区</text>
+    </view>
+    <view class="welfare_menu">
+      <view class="welfare_menu__box">
+        <view><text class="title">8元打车红包</text></view>
+        <view><text class="sub_title">快车/出租车可用</text></view>
+        <view><image></image></view>
+        <view><text class="qiang"></text></view>
+      </view>
+      <view class="welfare_menu__box"></view>
+      <view class="welfare_menu__box"></view>
+    </view>
+    <view class="welfare_menu">
+      <view class="welfare_menu__box"></view>
+      <view class="welfare_menu__box"></view>
+      <view class="welfare_menu__box"></view>
+    </view>
+  </view>
 </view>
 </scroll-view>
