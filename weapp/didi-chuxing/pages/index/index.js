@@ -4,8 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-      latitude: 23.099994,
-      longitude: 113.324520,
+      map: null,
       index: 0,
       menu_type:0,
       func1: [
@@ -148,7 +147,59 @@ Page({
           name: "路况查询"
         }
         
-      ]
+      ],
+      rows: [
+        { id: 1,
+          welfares:[
+            {
+              ids: 1,
+              title: "8元打车红包",
+              sub_title: "快车/出租车可用",
+              url: "/image/welfare0.jpg",
+              qiang: "点我抢>"
+            },
+            {
+              ids: 2,
+              title: "天天抢神券",
+              sub_title: "打车最高减15元",
+              url: "/image/welfare0.jpg",
+              qiang: "点我抢>"
+            },
+            {
+              ids: 3,
+              title: "10元立减券",
+              sub_title: "抢打车神券",
+              url: "/image/welfare0.jpg",
+              qiang: "点我抢>"
+            },
+          ]
+        },
+        { id: 2,
+          welfares:[
+            {
+              ids: 4,
+              title: "省15元打车费",
+              sub_title: "赢福利金抵车费",
+              url: "/image/welfare0.jpg",
+              qiang: "点我抢>"
+            },
+            {
+              ids: 5,
+              title: "成为滴滴司机",
+              sub_title: "享30元加油券包",
+              url: "/image/welfare0.jpg",
+              qiang: "立即加入>"
+            },
+            {
+              ids: 6,
+              title: "闯关领红包",
+              sub_title: "领30元红包",
+              url: "/image/welfare0.jpg",
+              qiang: "立即领取>"
+            },
+          ]
+        },
+      ],
   },
   // 事件处理函数
   bindViewTap() {
@@ -156,6 +207,10 @@ Page({
       url: '../logs/logs'
     })
   },
+  toReset() {
+    this.data.map.moveToLocation();
+  },
+
   // 滑动事件
   change(event) {      // 函数定义用冒号
     // console.log(event)
@@ -164,6 +219,11 @@ Page({
       menu_type: current
     })
   },
+
+  onShow() {
+    this.data.map = wx.createMapContext('myMap');
+  },
+
   onLoad() {
     wx.showLoading({
       title: '加载中...',

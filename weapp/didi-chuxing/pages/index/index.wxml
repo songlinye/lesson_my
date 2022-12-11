@@ -1,17 +1,21 @@
 <scroll-view class="container" scroll-y="true" >
-<view class="didi_hd">
+<view class="didi__hd">
   <view class="didi_map">
-    <map class="map"
+    <map 
+    id="myMap"
+    class="map"
     longitude="{{longitude}}" 
     latitude="{{latitude}}"
     show-location>
+    <cover-image src="/image/reset.png" class="reset" bindtap="toReset">
+    </cover-image>
     </map>
   </view>
 </view>
-<view class="didi_bd">
-<image src="/image/gg.png" class="didi_bd__gg"></image>
+<view class="didi__bd">
+<image src="/image/gg.png" class="didi_gg"></image>
 </view>
-<view class="didi_ft">
+<view class="didi__ft">
   <swiper class="menu {{(menu_type == 1)&&'menu-highter'}}" indicator-dots="true" indicator-active-color="blue" 
    bindchange="change">  <!--函数不能加括号-->
       <swiper-item>
@@ -35,21 +39,20 @@
     <view class="welfare_text">
       <text>福利专区</text>
     </view>
-    <view class="welfare_menu">
-      <view class="welfare_menu__box">
-        <view><text class="title">8元打车红包</text></view>
-        <view><text class="sub_title">快车/出租车可用</text></view>
-        <view><image></image></view>
-        <view><text class="qiang"></text></view>
+    <block wx:for="{{rows}}" wx:key="id">
+      <view class="welfare_menu">
+        <block wx:for="{{item.welfares}}" wx:key="ids">
+          <view class="welfare_menu__box">
+            <view class="text">
+              <view><text class="title">{{item.title}}</text></view>
+              <view><text class="sub_title">{{item.sub_title}}</text></view>
+            </view>
+            <view><image src="{{item.url}}"/></view>
+            <view class="qiang">{{item.qiang}}</view>
+          </view>
+        </block>
       </view>
-      <view class="welfare_menu__box"></view>
-      <view class="welfare_menu__box"></view>
-    </view>
-    <view class="welfare_menu">
-      <view class="welfare_menu__box"></view>
-      <view class="welfare_menu__box"></view>
-      <view class="welfare_menu__box"></view>
-    </view>
+    </block>
   </view>
 </view>
 </scroll-view>

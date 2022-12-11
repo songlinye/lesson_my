@@ -6,25 +6,30 @@
   border-top-right-radius: 50rpx;
   z-index: 1;
 }
-.didi_hd {
+.reset {
+  width:64rpx;
+  height:64rpx;
+  position:absolute;
+  bottom: 10rpx;
+  right: 11rpx;
+}
+
+.didi__hd {
   height: 465rpx;
 
 }
 
-.didi_bd {
+.didi__bd {
   background-color: red;
   height: 391rpx;
 }
 
-.didi_ft {
-  /*background-color: blue;*/
-  /*display: flex*/
-}
+
 .didi_map {
   height: 100%;
 }
 
-.didi_bd__gg {
+.didi_gg {
   width: 706rpx;
   height:154rpx;
 }
@@ -98,18 +103,38 @@
   width: 215rpx;
   background: linear-gradient(#fdfffd, #fdfcf3);
   border-radius: 11rpx;
+  display: flex;
+  flex-direction: column;
+}
+.welfare_menu__box .text {
+  height: 89rpx;
 }
 
 .welfare_menu__box .title {
-  font-size: 9pt;
+  font-size: 11pt;
   margin-left: 18rpx;
   margin-top: 28rpx;
+  font-weight: 600;
 }
 
 .welfare_menu__box .sub_title {
   color: #86864e;
-  font-size: 6pt;
+  font-size: 7pt;
   margin-left: 18rpx;
+}
+.welfare_menu__box image {
+  height: 109rpx;
+  width:100rpx;
+  float: right;
+}
+
+
+.welfare_menu__box .qiang {
+  background-image: linear-gradient(to right, #fdecee , #fcf7f1);
+  height: 68rpx;
+  border-radius: 11rpx;
+  color:rgba(255, 136, 0, 0.61);
+  font-weight: 1000;
 }
 
 
