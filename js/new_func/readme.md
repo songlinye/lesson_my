@@ -40,7 +40,7 @@
 
     6. call  apply   手动指定 this 指向第一个参数           立即运行
         借用方法    除了指定 this 还可以传参
-        call 展开来    apply []
+        call 需要一个一个传参    apply 会展开来，不需要一个一个传
 
     7. bind  返回一个被指定了 this 的函数
         未来被调用时 this 指向那个对象
