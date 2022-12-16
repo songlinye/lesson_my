@@ -32,11 +32,12 @@ function myNew(constructor, ...args) {
     //return
     // console.log(arguments);
 
-    // constructor.call(obj, ...arguments);       // 虽然用了 call，   但是后面用了展开运算符
-    constructor.apply(obj, args);
+    // constructor.call(obj, ...arguments);       // 虽然用了 call，   但是后面用了展开运算符       // call传递的参数是序列1，2，3，4
+    constructor.apply(obj, args);       //  apply传递的参数是集合型[1，2，3，4]   故不需展开
     // console.log(obj);
     obj.__proto__ = constructor.prototype;
     return obj;
 }
 
 let lu = myNew(Person, '卢总', 17);
+console.log(lu.name);
