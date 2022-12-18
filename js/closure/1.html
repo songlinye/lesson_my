@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <label for="unDebounce">没有防抖的input</label>
+        <input type="text" id="unDebounce" placeholder="请输入关键字" >  <!-- required 必填-->
+    </div>
+    <script>
+        // 前端三剑客    html  css  js
+        // js 语言？ 浆糊，用来粘合 html 和 css 
+        // 百度搜索  search suggest
+        // 全局作用域 js 当前单线程的 global window 
+        let inputa = document.getElementById('unDebounce');  // 类型
+        // js 一切复杂类型都是对象， 具体是 Object 哪个子类型    面向对象编程？
+        // HTMLInputElement     CSSStyleDeclaration
+        // inputa.value = '世龙';
+        // console.log(Object.prototype.toString.call(inputa.style));
+        inputa.addEventListener('keyup',function(e){
+            // console.log(Object.prototype.toString.call(e));
+            console.log(e.key, e.keyCode);
+        })
+        
+    </script>
+</body>
+</html>
