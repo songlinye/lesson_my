@@ -33,6 +33,8 @@
 
 - parseInt()        可解析一个字符串，并返回一个整数     (note11)
 
+- slice() 
+
 
 # Math 对象方法
 
@@ -138,6 +140,8 @@
 
                 decNum = 122.33
                 decNum.toString() //  result: "122.33"
+
+                数组可以直接用 toString() 方法，消除深度，每一项逗号隔开       codewars ~ 25   
 
 3. 检测对象的类型
             eg.     Object.prototype.toString.call(arr)  == "[object Array]"
