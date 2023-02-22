@@ -5,8 +5,11 @@
 
 function max(){
     let arr1 = [...arguments];
+    // console.log(arr1);
     let str = arr1.toString();
+    // console.log(str);
     let arr2 = str.split(",");
+    // console.log(arr2);
     let arr3 = arr2.map(Number);
     let a = arr3.some((el) => Number.isNaN(el));
     if(!a) {    // 全是数字
