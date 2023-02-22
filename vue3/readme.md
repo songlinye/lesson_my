@@ -44,7 +44,7 @@
 
 - 占位符与数据绑定的区别
     普通的html 里输出的占位符   {{}}
-    标签属性 或 组件的props 理     数据绑定
+    标签属性 或 组件的props 里     数据绑定
     - v-bind:value  绑定值  :value   v-bind省略   单向数据绑定
         v-on:input  绑定事件    v-on  简写为 @
     - 单向数据？
@@ -68,3 +68,9 @@ template  n. 样板;模板;
 version   n. 版本
 attribute   n. 属性;特征;性质;定语
 component   n. 组件;组成部分
+enumerable  a. 可枚举的
+freeze    v.n. 冻结
+observe  v. 监听
+observer  n. 观察者
+react   v. 反应
+reactive  a.反应的，响应的
