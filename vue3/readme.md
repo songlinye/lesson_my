@@ -54,8 +54,40 @@
         api 更友好
 
 
+- 生命周期    MVVM
+    Model   View
+
+    - create 创建阶段     在内存中
+        创建之前会先监听事件和生命周期钩子函数                         beforeCreate
+        数据的绑定(   {{}}  )和响应式( get  set  defineProperty )                          created
+
+    - mount 阶段     从内存中 去到页面真实DOM上
+        template 编译成 dom string     （模板的编译）                         beforeMount
+        dom string -> app.mount('#app')     （挂载过程中执行渲染，执行DOM树的构建）                               mounted
+
+    - 组件不是静态  (如5.html中的counter)
+        事件
+        数据请求
+        this.$data.counter
+        this.counter                                        beforeUpdate        生成了  new dom string
+
+        new dom string  ->  DOM 显示                            updated
 
 
+    - unmount
+        命令 卸载   beforeUnmount
+        unmounted 已经卸载， DOM removeChild
+
+
+
+- vue 数据模型   ( model层 )
+    data  私有数据
+    props  传参
+    computed  计算属性
+
+
+- 父子组件间的生命周期
+    局部和整体的概念来处理
 
 
 
@@ -74,3 +106,6 @@ observe  v. 监听
 observer  n. 观察者
 react   v. 反应
 reactive  a.反应的，响应的
+init     初始化
+cycle    n. 周期
+compile    v. 编译
