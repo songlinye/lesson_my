@@ -117,6 +117,16 @@
                     })
                     console.log(sum2);
 
+- fliter()      创建⼀个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。   （会遍历数组的每一项）
+                        filter() 不会对空数组进⾏检测, 不会改变原始数组
+
+                        arr.filter((item, index, arr) => {})       第⼀个参数是数组中当前元素的值,第⼆个参数为元素索引值,第三个参数为数组本⾝
+
+                    let arr1 = [1, 2, 3, 4, 5, 6]
+                    let arr2 = arr1.filter(item => {
+                        return item % 2 == 0
+                    })
+                    console.log(arr2) // [2, 4, 6]
 
 
 # 计时器
