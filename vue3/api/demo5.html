@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>   <!-- @next 表示最新版本 -->
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        // 局部组件
+        const Website = {   //首字母大写表示它是一个类，可以复用很多次
+            template: '<h2>JSPang.com</h2>'
+        }
+        const Describe = {
+            template: '<div>技术胖的博客</div>'
+        }
+        const Counter = {
+            data() {   // 私有数据
+                return {
+                    newCounter: this.count
+                }
+            },
+            props: {
+                count: {
+                    type: Number,
+                    //required: ture   // 必须有传参
+                    default: 1      // 如果没有传，默认值为1
+                }
+            },
+            template: `
+                <div>{{newCounter}}<button @click="newCounter++">增加1</button></div>
+            `
+        }
+        const app = Vue.createApp({
+            data() {
+                return {
+                    count: 1
+                }
+            },
+            components: {   // 声明
+                'website': Website,
+                'describe': Describe,
+                'counter': Counter
+            },
+            template:`
+            <counter :count="count" />
+            <website/>
+            <describe/>
+            `
+        });
+        // 全局组件
+        // 复用 封装
+        // app.component('website', {
+        //     template: '<h2>JSPang.com</h2>'
+        // })
+        // app.component('describe', {
+        //     template: '<div>技术胖的博客</div>'
+        // })
+        app.mount('#app')
+    </script>
+</body>
+</html>
