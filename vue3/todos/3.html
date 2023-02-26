@@ -85,7 +85,7 @@
                     },
                     set: function(val) {    // 写操作
                         console.log(val,'///////');
-                        this.todos.forEach(todo => todo.done = val)
+                        this.todos.forEach(a => {a.done = val})
                     }
                 }
             }
