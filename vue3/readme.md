@@ -109,3 +109,25 @@ reactive  a.反应的，响应的
 init     初始化
 cycle    n. 周期
 compile    v. 编译
+
+
+
+
+
+
+
+
+
+
+
+
+
+npm init vite
+命名
+vue
+JS
+
+找到相应项目录重新打开集成终端
+npm i     // 安装依赖
+npm run dev     
+网址
