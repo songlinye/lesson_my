@@ -52,7 +52,7 @@
         const oTBody = document.querySelector('table tbody'); 
         fetch('http://localhost:3000/students')
             .then(data => data.json())
-            .then(data => {
+            .then(data => { 
                 // console.log(data);
                 data.forEach(item => {
                     oTBody.innerHTML += `
@@ -65,8 +65,8 @@
                 })
             })
         const oForm = document.forms["studentForm"];
-        oForm.addEventListener('submit', function (event) {
-            event.preventDefault();
+        oForm.addEventListener('submit', function (event) { //在提交事件发生时，会有一个event对象    // 不要用箭头函数这里，this会指向window
+            event.preventDefault();     // 阻止默认行为（跳转页面）
             // console.log(this);
             const student = {
                 name: this["name"].value,

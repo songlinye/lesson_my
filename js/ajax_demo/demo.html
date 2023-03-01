@@ -21,7 +21,8 @@
             const todosUL = document.querySelector('#todos')
             const todoInput = document.querySelector('#todoInput')
             // 存储能力
-            const todos = JSON.parse(localStorage.getItem("todos")) || []
+            const todos = JSON.parse(localStorage.getItem("todos")) || []   
+            //JSON 通常用于与服务端交换数据。在接收服务器数据时一般是字符串。可以使用 JSON.parse() 方法将数据转换为 JavaScript 对象。
             todos.forEach(todo => {
                 todosUL.innerHTML += `
                     <li>${todo.text}</li>
@@ -37,9 +38,12 @@
                 todos.push(newTodo);
                 // 保存本地
                 // localStorage.setItem('todos', todos);错误
-                localStorage.setItem('todos', JSON.stringify(todos));
+                localStorage.setItem('todos', JSON.stringify(todos));   // JSON.stringify 方法将某个对象转换成 JSON 字符串形式
+                // localStorage.setItem() 本地存储一个东西，   第一个参数是名字(此处todos),  第二个参数是值
+                // localStorage.setItem() 只能存字符串，不能存对象，如果是对象，存进去拿不出来
+                // localStorage.getItem("todos")  从本地取一个东西
             })
-        })()
+        })()// 立即执行函数
         
     </script>
 </body>
