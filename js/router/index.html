@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="http://127.0.0.1:5500/js/router/index.html">回到首页</a>
+        <a href="a.html">a页面</a>
+        <a href="b.html">b页面</a>
+    </header>
+    <main>
+        <div>首页</div>
+    </main>
+    <script>
+        const links = document.querySelectorAll('a');   // 所有的 a 标签组成一个数组
+        for(let link of links) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();     //                                                                阻止默认行为
+                const href = event.target.href;  // 拿到事件发生时，a标签的href属性
+                // console.log(href);
+                const xhr = new XMLHttpRequest();   // js 主动的去发送http请求
+                xhr.open('GET',href);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                    if(xhr.readyState == 4) {
+                        let domStr = xhr.responseText;
+                        // console.log(xhr.responseText);
+                        // 不用刷页面， 单页应用
+                        // console.log(domStr.match(/<main>([\s\S]*?)<\/main>/g))
+                        let content = domStr.match(/<main>([\s\S]*?)<\/main>/g)[0];
+                        content = content.replace('<main>', '');
+                        content = content.replace('</main>', '');
+                        // console.log(content);
+                        document.querySelector('main').innerHTML = content;
+                    }
+                }
+            }, false)
+        }
+    </script>
+</body> 
+</html>
