@@ -9,9 +9,12 @@
 
 
 - npm init -y 项目变成一个后端项目
-    npm install（可以简写成 i ） json-server
+    npm install（可以简写成 i ） json-server                
     package.json   dev: "json-server --watch student.json"                      package.json 是项目描述文件
     npm run dev
+
+
+- JSON-Server 是一个 Node 模块，运行 Express 服务器，你可以指定一个 json 文件作为 api 的数据源
 
  
 - http 请求分为 GET 和 POST         FORM表单的动作
