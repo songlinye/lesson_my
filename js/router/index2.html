@@ -1,0 +1,45 @@
+
+<!-- 练手index.html -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="http://127.0.0.1:5500/js/router/index2.html">回到首页</a>
+        <a href="a.html">a页面</a>
+        <a href="b.html">b页面</a>
+    </header>
+    <main>
+        <div>首页</div>
+    </main>
+    <script>
+        let links = document.querySelectorAll('a');         // All
+        for(let link of links) {
+            link.addEventListener('click', function(event) {    //event
+                event.preventDefault();
+                const href = event.target.href;         //
+                const xhr = new XMLHttpRequest(); // const 注册
+                xhr.open('GET', href);  //
+                xhr.send();
+                xhr.onreadystatechange = function() {           // 没有括号
+                    if(xhr.readyState == 4) {   //
+                        let domStr = xhr.responseText;  //
+                        domStr = domStr.match(/<main>([\s\S]*?)<\/main>/g)[0];
+                        domStr = domStr.replace('<main>','');
+                        domStr = domStr.replace('</main>','');
+                        document.querySelector('main').innerHTML = domStr;
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>

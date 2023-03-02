@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- #/page1    html 本身的功能 -->
+    <!-- historyRouter -->
+    <nav id="nav">
+        <a href="http://127.0.0.1:5500/page1">page1</a>
+        <a href="http://127.0.0.1:5500/page2">page2</a>
+        <a href="http://127.0.0.1:5500/page3">page3</a>
+        <a href="http://127.0.0.1:5500/page4">page4</a>
+        <a href="http://127.0.0.1:5500/page5">page5</a>
+    </nav>
+    <div id="container"></div>
+    <script>
+        // 路由
+            // 1. url 需要改变     
+            //     一个url 对应一个页面
+            //     hash #实现了   但是缺点是和后端路由 不统一， 故这种只是前端路由的过渡形式
+
+        // 1. 怎么在切换 url的时候，页面不重新加载
+        const nav = document.querySelector('#nav');
+        nav.addEventListener('click', function(e) {
+            if(e.target.tagName == 'A') {       // event.target.tagName 获得相应标签(大写)
+                e.preventDefault();
+                // console.log('------')
+                let href = e.target.href;
+                // location.href = href;    // 会刷新页面
+                history.pushState({}, null, href)
+            }
+        })
+    </script>
+</html>
