@@ -19,7 +19,7 @@
         const links = document.querySelectorAll('a');   // 所有的 a 标签组成一个数组
         for(let link of links) {
             link.addEventListener('click', function(event) {
-                event.preventDefault();     //                                                                阻止默认行为
+                event.preventDefault();     //                  //                    //                         阻止默认行为
                 const href = event.target.href;  // 拿到事件发生时，a标签的href属性
                 // console.log(href);
                 const xhr = new XMLHttpRequest();   // js 主动的去发送http请求
