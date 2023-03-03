@@ -7,8 +7,14 @@
 
 
 - 数据接口请求
-    ajax      tweet 微博     JS 主动拉取数据能力
-    http    服务器端返回    点击a 标签   去新的页面       传统的请求  在ajax 之前
+    ajax      tweet 微博     JS 主动拉取数据能力     json 复杂
+
+    http    服务器端返回    点击a 标签   去新的页面       传统的请求  在ajax 之前    完整的html
+ 
+    XMLHttpRequest  open  send  onreadstatechange  4
+
+    fetch  Promise实例     支持then 
+
     请求库  axios
     API    Application  Interface
 

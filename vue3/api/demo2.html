@@ -36,8 +36,8 @@
             {{count}}
             <button @click="add">+1</button>
             <input v-model.number.lazy="num" />
-            总价{{(price * num) * Math.random()}}  <!-- data发生改变时，表达式会重新计算 -->
-            总价2{{total}}                          <!-- data发生改变时，计算属性不会重新计算 -->
+            总价{{(price * num)}}  <!-- data发生改变时，表达式会重新计算 -->
+            总价二{{total}}                          <!-- data发生改变时，计算属性不会重新计算 -->
             `
         });
         app.mount('#app')

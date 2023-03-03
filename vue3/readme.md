@@ -1,4 +1,11 @@
 # Vue的世界
+
+    -   vue 是一个现代前端MVVM设计模式的开发框架
+          template       view 视图层   简写v      组件化
+          data         model  模型层   简写m          数据驱动
+         什么叫做vue的组件   可以把  v层和m层结合， 生成  html字符串    这种开发模式叫做vm   vm就是把数据和模板自动关联起来   vm
+         
+
     可以从小程序迁移过来
     - 组件思想  components
         wxml + wxss + js 可复用的组件
@@ -131,3 +138,9 @@ JS
 npm i     // 安装依赖
 npm run dev     
 网址
+
+
+       vue                     npm i
+        vue-router              npm i vue-router@next         
+        vuex                    npm install vuex --save
+        element3                npm i element3

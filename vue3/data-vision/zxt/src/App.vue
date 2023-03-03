@@ -115,8 +115,8 @@ onUnmounted(() => {
 </script>
 <template>
   <div>
-    <!-- <el-button>按钮</el-button>
-    <HelloWorld /> -->
+    <el-button>按钮</el-button>
+    <HelloWorld />
     <!-- vue 组件 => 标签    写法 -->
     <el-card class="introduce">
       <div class="order">

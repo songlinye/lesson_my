@@ -21,7 +21,7 @@
 - vue3 的语法变迁
 
     1. vue3 支持vue2 的传统命令式语法
-        data  methods  computed ...     缺点： 大型项目   需要找来找去
+        data  methods  computed ...     vue2 缺点： 大型项目   需要找来找去
 
     2. composition + setup  语法
         vue3 将功能逐个的提供出来， 随意组合， 开发组件
@@ -52,7 +52,6 @@
 
 
 命令
-npm init -y  ？？？
 npm init vite
 todos
 vue

@@ -19,3 +19,5 @@
 
 
 - router声明的  页面级别组件   放在 pages 中              而 components 是页面中的某个组件
+
+- assets   静态资源目录        放图片，放字体文件，放样式文件

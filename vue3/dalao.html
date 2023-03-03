@@ -76,8 +76,8 @@
                 -->
                 <my-dalao 
                     v-for="(item, index) of list"
-                    :item="item"
-                    :index="index"
+                    :itemaa="item"
+                    :indexaa="index"
                 />
             </div>
             `
@@ -91,10 +91,10 @@
             template:'<h1 style="text-align:center">旅梦大佬集合</h1>'
         })
         app.component('my-dalao', {
-            props:['item', 'index'],    //  简化
+            props:['itemaa', 'indexaa'],    //  简化
             template:`
                 <li>
-                    【{{index}}】 - 【{{item}}】
+                    【{{indexaa}}】 - 【{{itemaa}}】
                 </li>
             `
         })
