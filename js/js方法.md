@@ -175,3 +175,5 @@
             document.querySelector("标签名");    通过标签名获取元素
 
 # Number()    将字符串转类型转为数字类型
+
+# toFixed()     可把 Number 四舍五入为指定小数位数的数字。而且会把数字转换为字符串
