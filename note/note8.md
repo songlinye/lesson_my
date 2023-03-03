@@ -51,7 +51,7 @@
         g  全局标志      gi   忽略大小写
         
                 eg.     var  str = '#home#home'
-                        var newStr2 = str.replace(/home/g, 'home1')        //得到newStr2的结果为"#home1#home"
+                        var newStr2 = str.replace(/home/g, 'home1')        //得到newStr2的结果为"#home1#home1"
 
 
 
