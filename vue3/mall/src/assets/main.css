@@ -1,0 +1,6 @@
+/* css 中的 @import 用于引入外部文件       css 模块化 */
+@import "./base.css";
+
+#app {
+    font-weight: normal;
+}

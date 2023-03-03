@@ -1,0 +1,13 @@
+@import './base.styl';
+
+$primary = #1baeae
+
+
+// 混合函数 （不是真函数）
+wh($width, $height) // 传两个参数           
+    width $width
+    height $height
+
+fj($type=space-between) // 赋初值    space-between 相等间距，且首尾顶格
+    display flex
+    justify-content $type
