@@ -3,5 +3,5 @@
 
 var str="The rain in SPAIN stays mainly in the plaiN"; 
 var n=str.match(/ain/g);    // [ 'ain', 'ain' ]
-var n=str.match(/ain/gi);   // [ 'ain', 'AIN', 'ain', 'aiN' ]
-console.log(n)
+var m=str.match(/ain/gi);   // [ 'ain', 'AIN', 'ain', 'aiN' ]
+console.log(n, m)
