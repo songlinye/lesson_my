@@ -138,9 +138,40 @@ JS
 npm i     // 安装依赖
 npm run dev     
 网址
+npm run build  打包 生成 dist文件夹
 
 
        vue                     npm i
         vue-router              npm i vue-router@next         
         vuex                    npm install vuex --save
         element3                npm i element3
+
+
+
+
+
+
+
+
+
+
+
+
+在服务器端   由node 生产
+
+全部运行在 node环境
+
+是后端环境，不能像前端环境一样直接 open with live server
+npm init vite    安装vite包     在package.json 可以看到vite的版本号
+npm run dev    让脚本run起来  就会去运行vite
+
+vite 这个工程化套件运行起来之后， 首先找到 根目录下的vite.config.js（该文件对vite进行配置），看看有什么需要做的
+如果没有配置，vite.config.js则会让其进行默认行为，默认找到根目录下的index.html作为首页，在index.html中，把入口文件（main.js）加载运行
+  src下的main.js作为入口文件，在里面new了vue, 并且挂载到index.html中的app这个根节点上， 然后把各个文件（如router,views等）进行依赖、编译
+如果有配置，则会走配置
+等把所有东西编译到一起，生成了最终js之后， vite.config.js就会把 最终js 换一个运行环境，换到前端   所以就看到了整个页面
+
+
+
+npm run build   打包
+  生成了dist文件夹，在里面的index.html 中就可以直接 open with live Server,看到前端页面
