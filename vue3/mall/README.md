@@ -5,8 +5,18 @@
 
 
 - 工程化
+    前端工程化   工程化脚本运行在服务器端 node         
     .vue    style   lang="stylus"       css 工程  stylus || less
     stylus   交给->    vite    使用->   npm i stylus    转译->   页面上的css
+    vite.config.js  vite 配置文件     工程化定制
+
+
+- 组件化思想
+    state   状态对象，  响应式  数据驱动界面
+    常规的组件数据都放到state 中， 由reactive({...})
+    子组件和state 诞生依赖关系      热更新
+    components 组件 有利于 页面级别组件或者大组件更好维护， template比较简洁
+    维护好数据状态  正确
 
 
 
@@ -29,6 +39,17 @@
             style  通用的样式
                 - mixin.styl
                     专门放通用的混合函数的地方
+        - service     api
+            定义接口的地方
+            方便统一管理接口   axios  baseURL ...
+            每个页面的接口一个独立的文件    方便维护
+
+
+
+- 异步解决方案      （主要问题： 流程难控制）
+    - promise pending   ->   fullfiled
+    - 同步化
+    - es8   async + await       当有多个异步任务要同步化的时候  thenable 要简化
 
 
 
@@ -49,7 +70,7 @@
 
         - 1.  npm i stylus
                 安装stylus    css 预编译器
-                用全新的写法来写css, stylus, 帮我们自动编译成css
+                用全新的写法来写css,  stylus 帮我们自动编译成css
         - 2.  .vue  style  加上 lang="stylus"
     - 不用写{}:;   快       
         写了也没问题
@@ -60,6 +81,12 @@
         封装某个功能样式的集合
         混合到调用它的地方
     - 声明变量
+    - scoped
+        防止css 类名冲突
+        给组件加data-v-hash唯一值
+        选择器 加上 属性选择器
+    - &.active
+        & 引用上一级选择器
 
 
 

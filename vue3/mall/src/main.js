@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import {
-    Swipe
+    Swipe,
+    SwipeItem
 } from 'vant'
 import 'vant/lib/index.css'
 import './assets/main.css'  // reset
@@ -21,6 +22,7 @@ const app = createApp(App)
 
 app
     .use(Swipe)
+    .use(SwipeItem)
     // .use()
     .use(router)  // 当我们在做SPA 时， 路由接管一切     有了路由  才有pages  才有组件                   SPA 单页应用
 

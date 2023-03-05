@@ -1,6 +1,6 @@
 <template>
     <div>
-        Category
+        Cart
         <nav-bar />
     </div>
 </template>
