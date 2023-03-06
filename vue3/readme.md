@@ -96,6 +96,11 @@
 - 父子组件间的生命周期
     局部和整体的概念来处理
 
+- vue 为什么会有 @ 这种事件监听，而不用 addEventListener()  ?
+    因为 addEventListener() 前面要选择节点， 而在vue 里是没有节点可选择的，因为vue 不能去做DOM编程
+
+- 在vue中，axios是一个基于promise的HTTP库，主要用于实现AJAX异步通信功能；axios可以在浏览器中发送XMLHttpRequests请求，可以在nodejs中发送http请求，还可以拦截请求和响应、转换请求和响应数据。
+
 
 
 
