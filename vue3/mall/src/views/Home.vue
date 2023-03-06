@@ -18,22 +18,64 @@
         </header>
         <nav-bar />
         <swiper :list="state.swiperList" />
-        <div class="category-list">
+        <section class="category-list">
             <div v-for="item in state.categoryList" :key="item.categoryId">
                 <img :src="item.imgUrl">
                 <span>{{item.name}}</span>
             </div>
-        </div>
+          </section>
+        <section class="goods">
+          <header class="goods-header">新品上线</header>
+          <!-- 骨架屏  用户体验优化 -->
+          <van-skeleton title :row="3" :loading="state.loading">  
+            <!-- slot  插槽 -->
+            <div class="goods-box">
+              <goods-item
+                v-for="item in state.newGoodses"
+                :key="item.goodsId" 
+                @click="gotoDetail(item.goodsId)"
+                :goods="item" /> 
+            </div>
+          </van-skeleton>
+        </section>
+        <section class="goods">
+          <header class="goods-header">热销商品</header>
+          <van-skeleton title :row="3" :loading="state.loading">  
+            <div class="goods-box">
+              <goods-item
+                v-for="item in state.hotGoodses"
+                :key="item.goodsId" 
+                @click="gotoDetail(item.goodsId)"
+                :goods="item" />
+            </div>
+          </van-skeleton>
+        </section>
+        <section class="goods">
+          <header class="goods-header">推荐商品</header>
+          <van-skeleton title :row="3" :loading="state.loading">  
+            <div class="goods-box">
+              <goods-item
+                v-for="item in state.recommendGoodses"
+                :key="item.goodsId" 
+                @click="gotoDetail(item.goodsId)"
+                :goods="item" />
+            </div>
+          </van-skeleton>
+        </section>
     </div>
 </template>
 
 
 <script setup>
 import { onMounted, reactive } from 'vue'
+import { useRouter } from 'vue-router'    // 有r
 import { getHomeData } from '../service/home'
 import { showLoadingToast, closeToast } from 'vant'
 import NavBar from '~/NavBar.vue'
 import swiper from '~/Swiper.vue'
+import GoodsItem from '~/GoodsItem.vue'
+
+const router = useRouter()  // 把全局的路由对象给我们
 
 // data  响应式的数据
 // 数据的值  对应当前的组件状态
@@ -41,6 +83,9 @@ import swiper from '~/Swiper.vue'
 // 数据和组件的状态是一一对应关系
 const state = reactive({
     swiperList: [],
+    newGoodses: [],
+    hotGoodses: [],
+    recommendGoodses: [],
     loading: true,
     categoryList: [
     {
@@ -87,6 +132,15 @@ const state = reactive({
   ],
 })
 
+const gotoDetail = (id) => {
+  // detail/:id
+  // console.log(id, 'gotoDetail')
+  console.log(router, '///')
+  router.push({
+    path: `/detail/${id}`
+  })
+}
+
 // es8   异步的高级能力   async await
 // 挂载后再发送api 请求， 提升性能， 不回去争抢挂载时间
 onMounted(async() => {  // 使用了异步同步化的高级技巧
@@ -94,9 +148,13 @@ onMounted(async() => {  // 使用了异步同步化的高级技巧
         message: '加载中...',
         forbidClick: true,       // 不让用户点击此处
     })
+    // 后台接口数据
     const { data } = await getHomeData()  //  await promise
     // console.log(data)
-    state.swiperList = data.data.carousels
+    state.swiperList = data.carousels
+    state.newGoodses = data.newGoodses
+    state.hotGoodses = data.hotGoodses
+    state.recommendGoodses = data.recommendGoodses
     // console.log(state.swiperList)
     state.loading = false
     closeToast()
@@ -109,8 +167,10 @@ onMounted(async() => {  // 使用了异步同步化的高级技巧
 @import '../common/style/mixin' 
 // 可以一次性设置width height 的mixin 混合
 // stylus 提供了tab 缩进   为css 提供了模块化的能力
+#home-wrapper
+    padding-bottom 2rem
 .home-header
-    position absolute
+    position fixed
     top 0
     left 0
     line-height 1.33333rem
@@ -165,5 +225,16 @@ onMounted(async() => {  // 使用了异步同步化的高级技巧
         img
             wh(.96rem, .96rem)
             margin .346667rem auto .213333rem auto
-
+.goods
+    .goods-header
+        background #f9f9f9
+        height 1.3333rem
+        line-height 1.3333rem
+        text-align center
+        color $primary
+        font-size .426667rem
+        font-weight 500
+    .goods-box
+        fj(flex-start)
+        flex-wrap wrap
 </style>

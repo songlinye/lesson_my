@@ -39,6 +39,12 @@ const router = createRouter({
             path: '/user',
             name: 'user',
             component: () => import('@/views/User.vue')
+        },
+        {
+            // 动态路由   url  params   ?id= queryString
+            path: '/detail/:id',                            // 如果少了:  如/detail/id 则是静态路由，只是二级路由，而不是动态的，
+            name: 'detail',
+            component: () => import('@/views/Detail.vue')
         }
     ]
 })

@@ -4,6 +4,24 @@
 - 组件库
 
 
+
+- vue3 语法
+    - 过滤器 filters    相当于换了一种表现形式     只是一点小改动          （  而computed  data  ->  计算         大改动）
+        格式转化    进制转换    汇率    语言
+        入口(main.js)可以配置多个过滤器
+        app.config.globalProperties.$filters={
+            preifx(url) {
+                if()    ......
+            }
+        }
+
+
+- 设计模式
+    DRY    Don't repeat yourself
+    代码在复制重复的时候    停下来    将其封装成组件
+
+
+
 - 工程化
     前端工程化   工程化脚本运行在服务器端 node         
     .vue    style   lang="stylus"       css 工程  stylus || less
@@ -17,6 +35,8 @@
     子组件和state 诞生依赖关系      热更新
     components 组件 有利于 页面级别组件或者大组件更好维护， template比较简洁
     维护好数据状态  正确
+    - simple-header
+        noback  props  提高了组件的复用和应用场景
 
 
 
@@ -121,6 +141,65 @@
             Mobile Frist     80%
             PC   工作  管理  后台
 
+
+
+- axios
+    - 如接口请求里的顺丰
+        更专业
+        接口返回的数据， 再包一层  更好和更标准的使用， 更丰富的请求信息
+        http 了解更多
+        axios 把接口返回的数据放在data 中
+    - 拦截器    interceptors
+        axios  request/response
+        return res.data
+    
+    - (在vue中，axios是一个基于promise的HTTP库，主要用于实现AJAX异步通信功能；axios可以在浏览器中发送XMLHttpRequests请求，可以在nodejs中发送http请求，还可以拦截请求和响应、转换请求和响应数据。)
+
+
+
+- 骨架屏方案    用户体验优化
+    skeleton    vant 提供了这个组件
+    <van-skeleton :row="3" :loading="state.loading">
+        中间的template部分（插槽）    当loading=true 时，显示出来
+    </van-skeleton>   
+
+    此处： 三行  显示与否和state.loading绑定    
+      :row    : 表示后面是js运行区域，确保了传过去的row是数值类型
+
+
+
+- 图片懒加载(面试必面!)
+
+    性能优化第一等   减少http请求数 ！！！！！！！！
+
+    - html 文件中       link  src  img  script  都会启动新的http 请求
+        像公路一样有限制的
+        请求并发数 越多， 页面加载越慢
+    - 可视区内的图片加载
+    - 非可视区的图片延迟加载， 可视区滚动到哪里，加载相应图片
+    - vant 内置了Lazyload
+        vue directives   指令集    自定义指令 v-lazyload
+        （指令的本质： 命令组件或标签做相应的事情）
+        更简单直观
+    - 内置的图片是 base64 格式的      更小，可以放到css js 文件中， 不需要png那样的额外的文件， 有效地减少了并发数
+
+
+
+- vue-router 细节考点
+    - 懒加载
+    - router-link   激活路由
+        会有 .router-link-active 选择器
+    - 路由的跳转
+        - 全局对象router    可以通过vue-router 中的useRouter() 在组件里随时拿到
+            可以对它进行push   go    currentRoute
+        - 当前路由
+            可以通过 Router.currentRoute() 拿到
+            也可以通过vue-router 中的useRoute() 拿到 当前路由对象(route)
+            route.params 有各种数据
+        - useRoute() 使用一下      hooks函数 编程（所有use开头的函数的称呼）
+            vue  vue-router  vuex  ...  都会提供 use 开头的函数，  方便我们的使用， 函数的方式
+            它和 composition api 结合的很好
+            
 
 
 
