@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSPang</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+    <style>
+        /* 从无到有   */
+        .v-enter-active{
+        animation: comein 1s;
+        }
+        @keyframes comein{
+            0%{
+                transform:translateX(-100px)
+            }
+            100%{
+                transform:translateX(50px)
+            }
+        }
+        /* 从有到无 */
+        .v-leave-active{
+            animation : comeout 1s;
+        }
+        @keyframes comeout{
+            0%{
+                transform:translateX(50px)
+            }
+            100%{
+                transform:translateX(-100px)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                isShow:false,
+                }
+            },
+        template: `
+        <transition>  
+        <div v-if="isShow">技术胖讲程序</div>
+        </transition>
+        <div><button @click="handleClick">切换动画</button></div>
+        `,
+        methods: {
+            handleClick() {
+                this.isShow= !this.isShow
+            }
+        }
+    })
+    const vm = app.mount("#app")
+</script>
+</html>

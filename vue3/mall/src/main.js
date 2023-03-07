@@ -4,7 +4,10 @@ import {
     Swipe,
     SwipeItem,
     Skeleton,
-    Lazyload
+    Lazyload,
+    ActionBar,
+    ActionBarIcon,
+    ActionBarButton
 } from 'vant'
 import 'vant/lib/index.css'
 import './assets/main.css'  // reset
@@ -26,9 +29,13 @@ app
     .use(Swipe)
     .use(SwipeItem)
     .use(Skeleton)
+    .use(Lazyload)
+    .use(ActionBar)
+    .use(ActionBarIcon)
+    .use(ActionBarButton)
     // .use()
     .use(router)  // 当我们在做SPA 时， 路由接管一切     有了路由  才有pages  才有组件                   SPA 单页应用
-    .use(Lazyload)
+    
 
 // vue 过滤器
 app

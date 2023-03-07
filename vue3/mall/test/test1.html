@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSPang</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.2/vue.global.js"></script>
+    <style>
+        /* 过渡 */
+        .guodu {
+            transition: 3s background-color ease;
+        }
+        /* js 也可以做 动画   对DOM操作， 但是性能有问题， 会涉及到 重绘重排 */
+        /* css3 内置了animation  transition    性能优化 */
+        .animation {
+            animation: leftToRight 3s;
+            /* 兼容性 */
+            -webkit-animation: leftToRight 3s;          
+        }
+
+        @keyframes leftToRight {
+            0% {
+                transform: translateX(0px);
+            }
+
+            25% {
+                transform: translateX(25px);
+            }
+
+            50% {
+                transform: translateX(50px);
+            }
+
+            75% {
+                transform: translateX(25px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+
+        }
+        @-webkit-keyframes leftToRight {
+            0% {
+                transform: translateX(0px);
+            }
+
+            25% {
+                transform: translateX(25px);
+            }
+
+            50% {
+                transform: translateX(50px);
+            }
+
+            75% {
+                transform: translateX(25px);
+            }
+
+            100% {
+                transform: translateX(0px);
+            }
+
+        }
+        .abc {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                isAnimate: {
+                    animation: false,           //     左边是要动态输出的类名，右边的是条件
+                    abc: false                  //    条件为ture 输出； 为flase 不输出
+                }
+            }
+        },
+        template: `
+
+        <!-- 动态类名/动态class 和条件相关 -->
+
+        <div :class="isAnimate" class="guodu">技术胖讲程序</div>
+        <div><button @click="handleClick">启动/关闭</button></div>
+        `,
+        methods: {
+            handleClick() {
+                this.isAnimate.animation = !this.isAnimate.animation
+                this.isAnimate.abc = !this.isAnimate.abc
+            }
+        }
+    })
+    const vm = app.mount("#app")
+</script>
+</html>

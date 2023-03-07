@@ -18,11 +18,17 @@ const router = createRouter({
         {
             path: '/home',
             name: 'home',
+            meta: {
+                index: 1
+            },
             component: Home
         },
         {
             path: '/category',
             name: 'category',
+            meta: {
+                index: 1
+            },
             component: () => import('@/views/Category.vue')
         },
         {
@@ -44,7 +50,18 @@ const router = createRouter({
             // 动态路由   url  params   ?id= queryString
             path: '/detail/:id',                            // 如果少了:  如/detail/id 则是静态路由，只是二级路由，而不是动态的，
             name: 'detail',
+            meta: {
+                index: 3
+            },
             component: () => import('@/views/Detail.vue')
+        },
+        {
+            path: '/product-list',
+            name: 'product-list',
+            meta: {
+                index: 2
+            },
+            component: () => import('@/views/ProductList.vue')
         }
     ]
 })

@@ -199,7 +199,50 @@
         - useRoute() 使用一下      hooks函数 编程（所有use开头的函数的称呼）
             vue  vue-router  vuex  ...  都会提供 use 开头的函数，  方便我们的使用， 函数的方式
             它和 composition api 结合的很好
+
+
+
+- 路由切换的动画
+    vue  transition
+    silde-left   slide-right
+    首页  ->  detail
+    transition   由右向左   translate
+    detail  ->  首页    由左向右退出‘
+    1. 给路由切换加transition
+        <transition></transition>
+    2. vue 内置了transition 组件
+        配合v-if   v-show  router-view ...等  有挂载和卸载效果的指令    (v-show不是挂载卸载，只是类似)
+        给我们自动添加   .v-enter-active  .v-leave-active   类名钩子   不用像之前的例子那样去:class
+        .v-enter-active {   // true   从无到有
+            定制的能力很高
+        }
+        .v-enter-active {   // false   从有到无
             
+        }
+
+        transition  name属性  支持不同效果的自定义
+
+
+- 详情页技术内幕
+    1. 用户在编辑器里编辑的
+        content   长文     html 片段
+        固定的介绍 + 创意的用户编辑内容一起组成
+    2. 幻灯片    数量  大小 是不确定的
+        要做延迟加载（图片懒加载）
+    3. key 唯一值的意义
+        vue 的循环绑定  一定要给一个key， 不然就会warning（就会警告你，但是不会像红色的报错那样）
+        其中某一项修改时， 不可能替换整个数组， DOM更新开销大， 性能不好
+        数组对应的列表渲染 不能做DOM 编程，
+        应该把数组 和 DOM 要局部热更新的片段 做一个唯一值的对应
+        :key
+        不能用index ？      数组的修改涉及到unshift新增、中间的插入、排序、...时    可能要操作整个数组
+    4. v-html
+        详情页内容    多数是用户编辑的， 存储的形式是html格式
+        vue 不会直接把html字符串显示， 而是转成普通字符串
+        安全， 跨站脚本攻击， 不完整的html
+        v-html 负责安全性
+    5. vant 的底部购物组件套装
+        badge 徽章    跨页面共享状态    vuex
 
 
 
