@@ -37,7 +37,7 @@ const state = reactive({
 
 
 <style>
-.router-view {
+/* .router-view {
   position: absolute;
   width: 100%;
   height: auto;
@@ -45,7 +45,7 @@ const state = reactive({
   left: 0;
   bottom: 0;
   -webkit-overflow-scrolling:touch;
-}
+} */
 
 .slide-left-enter-active, 
 .slide-left-leave-active,

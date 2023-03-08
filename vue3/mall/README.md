@@ -246,6 +246,43 @@
 
 
 
+- 登录注册功能
+    - 鉴权
+    - 登录  注册  两个功能， 合并为一个页面
+    - 验证码功能
+        - 防止机器作弊   一定要是人工
+        - 验证码的组件是黑盒子（还没有去认真写）     canvas 返回验证码的imgCode
+            state.imgCode
+        - onSubmit
+            用户填的验证码 和 验证按组件的state.imgCode 比较
+            登录组件里怎么找到验证码组件
+            进入到里面去  拿到imgCode
+            ref 上场了
+            ref 标注一个对象， 拿到组件对象
+            1. const verifyRef = ref(null)
+            2. template  ref="verifyRef"
+            3. verifyRef 就是代表码验证码组件了
+            verifyRef.state.imgCode
+
+
+
+
+- nextTick
+    响应式数据的修改很快的        网上购物  钱   立即减少
+    但是页面的热更新确实需要一段时间的         快递
+    - 首页scroll 凸显导航栏效果， 极佳的用户体验
+        - nextTick
+            不只是组件挂载了， state 更新模板也完成了
+            window.addEventListener('scroll')    不会争抢
+        - scrollTop
+            state.headerScroll
+        - :class    active
+            &active
+        - lodash   throttle 节流 
+            只要有滚动(scroll)事件，就一定要节流
+        
+
+
 
 
 

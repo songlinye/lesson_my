@@ -39,6 +39,9 @@ const router = createRouter({
         {
             path: '/cart',
             name: 'cart',
+            meta: {
+                index: 1
+            },
             component: () => import('@/views/Cart.vue')
         },
         {
