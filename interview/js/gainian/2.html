@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+// Multiple Promise
+    const users = ['WEDISON123', 'CookLiu520', 'qingshansima911', 'jingg12', '2191706683', '1975686741', 'leslieCHUENGT', 'songlinye'];
+    // url `https://api.github.com/users/${user}`
+    // fetch(`https://api.github.com/users/${user}`)
+    // 并行
+    // Promise.all  全部运行完
+    // Promise.race  一个运行完就可以
+    async function getData(users) {
+        // 用fetch 对这个地址发送请求，返回的是二进制流
+        const promises = users.map(user => fetch(`https://api.github.com/users/${user}`).then(r => r.json()))
+        // console.log(promises)
+        const people = await Promise.all(promises)
+        return people
+    }
+    const people = getData(users)
+    people
+        .then(data => {
+            console.log(data)
+        })
+    console.log(people)
+</script>
+</body>
+</html>

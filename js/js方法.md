@@ -68,6 +68,31 @@
 
 # 数组对象方法
 
+- findIndex()   返回通过测试（函数内判断）的数组的第一个元素的  下标 。  没有符合条件的元素则返回     -1  
+
+- find()        返回通过测试（函数内判断）的数组的第一个元素的  值   。    没有符合条件的元素则返回   undefined
+    - find() 方法为数组中的每个元素都调用一次函数执行：
+        - 当数组中的元素在测试条件时返回 true 时, find() 返回符合条件的元素，之后的值不会再调用执行函数。
+        - 如果没有符合条件的元素返回 undefined
+
+    - find() 对于空数组，函数是不会执行的。
+
+    - find() 并没有改变数组的原始值。
+
+    - 语法： array.find(function(currentValue, index, arr),thisValue)
+        - 函数是必需的
+        - currentValue   必需  当前元素
+        - index         可选    当前元素的索引值
+        - arr           可选    当前元素所属的数组对象
+        - thisValue     可选
+
+- includes()      用于判断字符串/数组是否包含指定的子字符串/元素。  如果找到匹配的字符串则返回 true，否则返回 false。
+    -  includes() 方法区分大小写。
+    - 语法： string/arr.includes(searchvalue, start)      start 可选，表示从哪个位置开始查找，默认为0
+
+- Array.from()      用于将类数组结构或可迭代对象转换为数组实例
+    - 可以使用Array.from()方法进行数组的浅拷贝
+
 - Array.isArray()     判断是否为数组
 
 - concat()       用于连接两个或多个数组。          此方法返回一个新数组，不改变原来的数组。
@@ -109,19 +134,23 @@
 
 - reduce()    接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
 
-                    let arr = [1,3,5,7,9]
+                    arr.reduce(function(prev,cur,index,arr){                      // arr 原数组  init 初始值
+                        ...
+                    }, init);
 
-                    let sum1 = arr.reduce((total,current,index)=>{
-                        console.log(total,current,index);
-                        return total+current;
-                    })
-                    console.log(sum1); 
+                        let arr = [1,3,5,7,9]
 
-                    let sum2 = arr.reduce((total,current,index)=>{
-                        console.log(total,current,index);
-                        return total*current
-                    })
-                    console.log(sum2);
+                        let sum1 = arr.reduce((total,current,index)=>{
+                            console.log(total,current,index);
+                            return total+current;
+                        }, 0)
+                        console.log(sum1); 
+
+                        let sum2 = arr.reduce((total,current,index)=>{
+                            console.log(total,current,index);
+                            return total*current
+                        })
+                        console.log(sum2);
 
 - fliter()      创建⼀个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。   （会遍历数组的每一项）
                         filter() 不会对空数组进⾏检测, 不会改变原始数组
