@@ -285,7 +285,12 @@
 
 
 
-
+- 如何跨组件共享数据
+    - 组件里的 reactive({})  不一样 私有状态
+    - login 状态
+    - vuex 全家桶成员之一 pinia
+    - store
+        共享状态所在地
 
 
 
@@ -306,3 +311,5 @@ npm i vant
 npm i vue-router@next
 npm i lib-flexible
 npm i stylus
+npm i pinia
+npm i js-md5

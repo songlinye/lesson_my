@@ -1,12 +1,20 @@
 <script setup>
-import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
+import { reactive, onMounted } from 'vue'
+import { useRouter } from 'vue-router' // hooks 
+import { useUserStore } from '@/store/user.js'
 
+const { isLogin } = useUserStore()
+console.log(isLogin, '//////////')
 const router = useRouter()
 // 路由跳转前 做件事
 // 路由守卫  （像生命周期）
-router.beforeEach((to, from) => {  //  from 当前页面信息    to 将要跳转的页面信息
+router.beforeEach((to, from, next) => {  //  from 当前页面信息    to 将要跳转的页面信息
   // console.log(from, to, '////')
+  if (to.meta.isLogin) { // 需要登录权限才能访问
+    next('/login')
+  } else {
+    next()
+  }
   if(to.meta.index > from.meta.index) {
     // 从主页面 去子页面
     state.transitionName = 'slide-left'
@@ -22,13 +30,17 @@ router.beforeEach((to, from) => {  //  from 当前页面信息    to 将要跳�
 const state = reactive({
   transitionName: 'slide-left'
 })
+
+onMounted(() => {
+  // updateLogin()
+})
 </script>
 
 <template>
   <!-- <transition :name="state.transitionName">
     <router-view class="router-view"/>
   </transition> -->
-  <router-view class="router-view" v-slot="{Component}">
+  <router-view v-slot="{Component}">
     <transition :name="state.transitionName">
       <component :is="Component" />
     </transition>
@@ -37,16 +49,6 @@ const state = reactive({
 
 
 <style>
-/* .router-view {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  -webkit-overflow-scrolling:touch;
-} */
-
 .slide-left-enter-active, 
 .slide-left-leave-active,
 .slide-right-enter-active,

@@ -32,7 +32,7 @@
         </div>
         <van-action-bar>
             <van-action-bar-icon icon="chat-o" text="客服"></van-action-bar-icon>
-            <van-action-bar-icon icon="chat-o" text="购物车" :badge="3"></van-action-bar-icon>
+            <van-action-bar-icon icon="chat-o" text="购物车" :badge="!cart.count ? '' : cart.count"></van-action-bar-icon>
             <van-action-bar-button type="warning" text="加入购物车"></van-action-bar-button>
             <van-action-bar-button type="danger" text="立即购买"></van-action-bar-button>
         </van-action-bar>
@@ -46,6 +46,9 @@ import { useRoute } from 'vue-router'  // 没r      useRoute 可以拿到当前�
 import { getDetail } from '@/service/detail'
 import SimpleHeader from '@/components/SimpleHeader.vue'
 import { showLoadingToast, closeToast } from 'vant'
+import { useCartStore } from '@/store/cart.js'
+
+const cart = useCartStore()
 
 // router 是所有(路由)route的集合
 const route = useRoute();  // 当前的路由

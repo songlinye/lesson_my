@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia }  from 'pinia'
 import {
     Swipe,
     SwipeItem,
@@ -11,6 +12,7 @@ import {
     Form,
     Field,
     Button,
+    Icon
 } from 'vant'
 import 'vant/lib/index.css'
 import './assets/main.css'  // reset
@@ -29,6 +31,8 @@ import router from './router'   // 启用路由
 const app = createApp(App)
 
 app
+    .use(Icon)
+    .use(createPinia())
     .use(Swipe)
     .use(SwipeItem)
     .use(Skeleton)
