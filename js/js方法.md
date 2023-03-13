@@ -68,7 +68,25 @@
 
 # 数组对象方法
 
-- findIndex()   返回通过测试（函数内判断）的数组的第一个元素的  下标 。  没有符合条件的元素则返回     -1  
+
+- flat()        实现数组扁平化
+    - 括号中参数默认为1， 意思是将数组降维一次，  可写 Infinity   无数次
+
+    - eg.    
+        let ary = [1, [2, [3, [4, 5]]], 6];
+        let ary1 = ary.flat()       // [ 1, 2, [ 3, [ 4, 5 ] ], 6 ]
+        let ary2 = ary.flat(Infinity)       // [ 1, 2, 3, 4, 5, 6 ]
+
+- some()       用于检测数组中的元素是否满足指定条件（函数提供）。    返回值是boolean值      其他的和find() 基本相同
+    - some() 方法会依次执行数组的每个元素：
+        - 如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。
+        - 如果没有满足条件的元素，则返回false。
+    
+    - some() 不会对空数组进行检测。
+
+    - some() 不会改变原始数组。
+
+    - 语法和find()  相同
 
 - find()        返回通过测试（函数内判断）的数组的第一个元素的  值   。    没有符合条件的元素则返回   undefined
     - find() 方法为数组中的每个元素都调用一次函数执行：
@@ -85,6 +103,8 @@
         - index         可选    当前元素的索引值
         - arr           可选    当前元素所属的数组对象
         - thisValue     可选
+
+- findIndex()   返回通过测试（函数内判断）的数组的第一个元素的  下标 。  没有符合条件的元素则返回     -1  
 
 - includes()      用于判断字符串/数组是否包含指定的子字符串/元素。  如果找到匹配的字符串则返回 true，否则返回 false。
     -  includes() 方法区分大小写。
@@ -130,7 +150,7 @@
 
 - forEach()     遍历数组的每一个元素，并且将这个元素作为一个参数传递给里面的回调函数                没有返回值，且不改变原数组
 
-- map()     返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值        不改变原数组
+- map()  (必考！)    返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值        不改变原数组   interview/js/map
 
 - reduce()    接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
 
@@ -210,3 +230,20 @@
 # Number()    将字符串转类型转为数字类型
 
 # toFixed()     可把 Number 四舍五入为指定小数位数的数字。而且会把数字转换为字符串
+
+#  localStorage.setItem()    localStorage.getItem()     JSON.parse()        JSON.stringify()
+
+- localStorage.setItem() 本地存储一个东西，   第一个参数是名字,  第二个参数是值
+    只能存字符串，不能存对象，如果是对象，存进去拿不出来
+
+- localStorage.getItem()  从本地取一个东西
+
+- JSON.stringify()    将某个对象转换成 JSON 字符串形式        序列化
+
+- JSON.parse()    将JSON数据转换为 JS 对象。            反序列化
+
+- eg.
+    let o = {a:1, b:2, c:3}
+    localStorage.setItem('item', JSON.stringify(o))   
+    localStorage.getItem('item')        // '{"a":1,"b":2,"c":3}'
+    JSON.parse(localStorage.getItem('item'))        // {a: 1, b: 2, c: 3}
