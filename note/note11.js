@@ -1,5 +1,5 @@
-console.log(parseInt("10"));
-console.log(parseInt("10.33"));
+console.log(parseInt("-10"));
+console.log(parseInt("+10.33"));
 console.log(parseInt("34 45 66") );
 console.log(parseInt(" 60 "));
 console.log(parseInt("40 years"));
