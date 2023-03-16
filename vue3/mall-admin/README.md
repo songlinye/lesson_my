@@ -79,6 +79,48 @@
         el-form组件也是对象     这个对象上的方法
         
 
+- vue 登录
+    1. 选择哪种登录方案
+        cookie(不安全)    jwt    token(主流)
+        token(令牌环)    服务器端签发    
+        token含有几个东西      有效期  域名限制
+        前端在axios接口请求中默认带上请求头  axios.defaults.headers['token'] = getLocal('token') || ''
+    
+    2. vue-router  app.vue 全局
+        路由守卫  GetLocal + require login  -> login
+
+    3. 头像及昵称这些信息？
+        - /profile  API     登录  {name: age, avatar:}
+
+
+
+- 用户信息 数据 页面显示的各种需求
+    1. 当前组件请求， 当前组件显示，  私有状态
+        onMounted  async  ->  await  api  axios  ->  state  reactive  ->  bind  自动更新
+    2. 共享用户数据 怎么办？
+        - pinia   把数据托管一下    数据中央管理
+            全家桶老三 pinia   银行    共享数据
+        - localStorage
+
+
+- pinia 的使用流程     财务 更专业的管理共享状态  store
+    1. 小型项目没有必要 （几个页面， 接口和请求   就够了）
+    2. 全家桶中的数据管理， 难
+        - main.js 入口文件  use() 启用createPinia()
+        - user.js   用户状态模块        (store下的)  
+            const useUserStore = defineStore('user', () => {
+                const profile(状态初始值) = {}
+                const setProfile(修改状态的方法) = () => {}
+                return {
+                    状态的初始值，
+                    修改这个状态的方法          走正规流程
+                }
+            })
+        - 使用共享状态的地方   
+            const userStore = useUserStore();
+            读这个状态   userStore.profile
+            写这个状态   userStore.profile = { ... }    NO！！
+                userStore.setProfile()  ....    YES！！！
 
 
 
@@ -127,6 +169,9 @@
 
 
 
+- 一个ajax请求  按照http协议来分析   分为 请求头 和 请求体
+    请求头里面分为两部分，   请求行  请求头(里面有各种的KeyValue, 如这次请求发送的是什么格式的内容，里面有没有token，里面有没有cookie)
+    请求行分为三部分，    请求的方法( get / post )   url    HTTP版本号
 
 
 

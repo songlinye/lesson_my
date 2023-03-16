@@ -1,7 +1,11 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import { getPageTitle, getLocal } from '@/utils'
+import { getPageTitle, getLocal, setLocal } from '@/utils'
+import { getUserProfile } from '@/service/user.js'
+import { useUserStore } from '@/store/user.js'  // 直达
+
+const userStore = useUserStore();   // 连上了
 
 const state = reactive({
   defaultOpen: ['1', '2'],  // 默认展开第一个第二个菜单
@@ -27,6 +31,7 @@ router.beforeEach((to, from, next) => {
     next()
   } else {
     // 需要鉴权的页面
+    console.log(getLocal('token'), '////')
     if(to.meta.login && !getLocal('token')) {
       next({
         path: '/login'
@@ -35,6 +40,20 @@ router.beforeEach((to, from, next) => {
         next()
       }
   }
+})
+
+onMounted(async () => {
+  // const userInfo = getLocal('profile') || '';
+  // console.log(userInfo, '////');
+  // if(!userInfo) {
+  //   const { data } = await getUserProfile()
+  //   // console.log(userInfo, 'profile')
+  //   setLocal('profile', data)
+  // }
+
+  const { data } = await getUserProfile()
+  userStore.setProfile(data)
+ 
 })
 </script>
 
