@@ -61,7 +61,7 @@
                                 let apiResponse = await fetch("https://fjolt.com/api");    
                                 let response = apiResponse.json();        
                                 console.log(response);
-                                }
+                            }
                             getAPI();
 
         
